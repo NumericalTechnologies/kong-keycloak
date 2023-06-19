@@ -3,7 +3,9 @@ local function is_ascii_string(string)
 end
 
 local function sanitize_regex_string(string)
-  return string.gsub(string, "[%^%%%a%%%c%%%d%%%g%%%l%%%p%%%s%%%u%%%w%%%x%%%z%%%A%[%]%(%)%-+*?%$]", "%%%1")
+  local sanitized_quantifiers = string.gsub(string, "[%^%[%]%(%)%-+*?%$]", "%%%1")
+  local sanitized_quantifiers_and_metasequences = string.gsub(sanitized_quantifiers, "%%([acdglpsuwxzA])", "%1")
+  return sanitized_quantifiers_and_metasequences
 end
 
 local function is_add_user_endpoint(path)
