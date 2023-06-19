@@ -47,15 +47,12 @@ return function(add_user_config, host)
       },
     })
 
-    kong.log(count_users_url)
-    kong.log(res.status)
-
     if not res or res.status ~= 200 then
       return kong.response.exit(500, { errorMessage = errors.UNEXPECTED_ERROR_MESSAGE })
     end
 
     local number_of_users = tonumber(res.body)
-    if number_of_users > add_user_config.max_users then
+    if number_of_users >= add_user_config.max_users then
       return kong.response.exit(400, { errorMessage = errors.USER_LIMIT_REACHED_ERROR_MESSAGE })
     end
   end
