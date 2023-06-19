@@ -31,14 +31,8 @@ return function(add_user_config, host)
   end
 
   if add_user_config.max_users > 0 then
-    local count_users_path = ""
-    if string.sub(path, #path) == "/" then
-      count_users_path = path .. "count"
-    else
-      count_users_path = path .. "/count"
-    end
-
-    local count_users_url = host .. count_users_path
+    local realm = regex.get_realm_from_add_user_endpoint(path)
+    local count_users_url = host .. "/admin/realms/" .. realm .. "/users/count"
     local authorization_header_key = "authorization"
     local authorization = kong.request.get_header(authorization_header_key)
 

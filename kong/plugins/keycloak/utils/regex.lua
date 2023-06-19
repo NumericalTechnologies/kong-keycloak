@@ -9,17 +9,22 @@ local function sanitize_regex_string(string)
 end
 
 local function is_add_user_endpoint(path)
-  return string.match(path, ".*/admin/.+/users/?$") ~= nil
+  return string.match(path, ".*/admin/realms/.+/users/?$") ~= nil
+end
+
+local function get_realm_from_add_user_endpoint(path)
+  return string.match(path, ".*/admin/realms/(.+)/users/?$")
 end
 
 local function is_modify_or_delete_endpoint(path, user_id)
-  return string.match(path, ".*/admin/.+/users/" .. user_id .. "/?") ~= nil
+  return string.match(path, ".*/admin/realms/.+/users/" .. user_id .. "/?") ~= nil
 end
 
 return {
   is_ascii_string = is_ascii_string,
   sanitize_regex_string = sanitize_regex_string,
   is_add_user_endpoint = is_add_user_endpoint,
+  get_realm_from_add_user_endpoint = get_realm_from_add_user_endpoint,
   is_modify_or_delete_endpoint = is_modify_or_delete_endpoint,
 }
 
