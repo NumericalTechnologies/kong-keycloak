@@ -5,7 +5,7 @@ local _M = {}
 
 function _M.execute(config)
   local add_user_config = config.add_user
-  if add_user_config.enabled and add_user_interceptor(add_user_config) ~= nil then
+  if add_user_config.enabled and add_user_interceptor(add_user_config, config.host) ~= nil then
     return
   end
 

@@ -7,6 +7,12 @@ local delete_user_schema = require("kong.plugins.keycloak.schemas.delete_user")
 local config_schema = Schema.define {
   type = "record",
   fields = {
+    {
+      host = {
+        type = "string",
+        required = true
+      }
+    },
     { add_user = add_user_schema },
     { modify_user = modify_user_schema },
     { delete_user = delete_user_schema },

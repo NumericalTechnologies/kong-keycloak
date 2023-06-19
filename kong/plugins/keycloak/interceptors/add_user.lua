@@ -3,7 +3,7 @@ local errors = require("kong.plugins.keycloak.constants.errors")
 local http = require("resty.http")
 local kong = kong
 
-return function(add_user_config)
+return function(add_user_config, host)
   local path = kong.request.get_path()
   local method = kong.request.get_method()
 
@@ -38,7 +38,7 @@ return function(add_user_config)
       count_users_path = path .. "/count"
     end
 
-    local count_users_url = kong.request.get_scheme() .. "//" .. kong.request.get_host() .. ":" .. kong.request.get_port() .. count_users_path
+    local count_users_url = host .. count_users_path
     local authorization_header_key = "authorization"
     local authorization = kong.request.get_header(authorization_header_key)
 
