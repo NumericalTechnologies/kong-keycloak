@@ -1,5 +1,5 @@
-local Schema = require "kong.db.schema"
-local typedefs = require "kong.db.schema.typedefs"
+local Schema = require("kong.db.schema")
+local typedefs = require("kong.db.schema.typedefs")
 local add_user_schema = require("kong.plugins.keycloak.schemas.add_user")
 local modify_user_schema = require("kong.plugins.keycloak.schemas.modify_user")
 local delete_user_schema = require("kong.plugins.keycloak.schemas.delete_user")

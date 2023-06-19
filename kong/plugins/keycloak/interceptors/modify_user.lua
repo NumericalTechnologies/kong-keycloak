@@ -1,5 +1,5 @@
-local regex = require("keycloak.utils.regex")
-local errors = require("constants.errors")
+local regex = require("kong.plugins.keycloak.utils.regex")
+local errors = require("kong.plugins.keycloak.constants.errors")
 local kong = kong
 
 return function(modify_user_config)

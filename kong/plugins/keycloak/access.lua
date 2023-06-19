@@ -1,6 +1,6 @@
-local add_user_interceptor = require("interceptors.add_user")
-local delete_user_interceptor = require("interceptors.delete_user")
-local modify_user_interceptor = require("interceptors.modify_user")
+local add_user_interceptor = require("kong.plugins.keycloak.interceptors.add_user")
+local delete_user_interceptor = require("kong.plugins.keycloak.interceptors.delete_user")
+local modify_user_interceptor = require("kong.plugins.keycloak.interceptors.modify_user")
 local _M = {}
 
 function _M.execute(config)
