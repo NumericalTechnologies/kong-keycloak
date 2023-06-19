@@ -4,7 +4,7 @@ local kong = kong
 
 return function(modify_user_config)
   local method = kong.request.get_method()
-  if method ~= "PUT" then return end
+  if method ~= "PUT" and method ~= "POST" then return end
 
   for _, blacklist_object in ipairs(modify_user_config.blacklist) do
     if regex.is_modify_or_delete_endpoint(
