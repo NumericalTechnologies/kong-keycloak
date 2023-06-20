@@ -1,5 +1,5 @@
-local regex = require("kong.plugins.keycloak.utils.regex")
-local errors = require("kong.plugins.keycloak.constants.errors")
+local regex = require("kong.plugins.keycloak.regex_util")
+local errors = require("kong.plugins.keycloak.errors_constants")
 local http = require("resty.http")
 local kong = kong
 

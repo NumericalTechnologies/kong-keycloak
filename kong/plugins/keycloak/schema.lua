@@ -1,8 +1,8 @@
 local Schema = require("kong.db.schema")
 local typedefs = require("kong.db.schema.typedefs")
-local add_user_schema = require("kong.plugins.keycloak.schemas.add_user")
-local modify_user_schema = require("kong.plugins.keycloak.schemas.modify_user")
-local delete_user_schema = require("kong.plugins.keycloak.schemas.delete_user")
+local add_user_schema = require("kong.plugins.keycloak.add_user_schema")
+local modify_user_schema = require("kong.plugins.keycloak.modify_user_schema")
+local delete_user_schema = require("kong.plugins.keycloak.delete_user_schema")
 
 local config_schema = Schema.define {
   type = "record",

@@ -1,4 +1,4 @@
-local Schema = require "kong.db.schema"
+local Schema = require("kong.db.schema")
 
 local modify_user_schema = Schema.define {
   type = "record",

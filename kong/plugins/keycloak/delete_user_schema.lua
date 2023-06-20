@@ -1,4 +1,4 @@
-local Schema = require "kong.db.schema"
+local Schema = require("kong.db.schema")
 
 local delete_user_schema = Schema.define {
   type = "record",
