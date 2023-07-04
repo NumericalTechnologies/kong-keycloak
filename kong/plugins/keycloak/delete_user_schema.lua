@@ -22,8 +22,7 @@ local delete_user_schema = Schema.define {
               }
             }
           }
-        },
-        default = {}
+        }
       }
     }
   }

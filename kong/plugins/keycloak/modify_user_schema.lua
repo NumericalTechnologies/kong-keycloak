@@ -22,8 +22,7 @@ local modify_user_schema = Schema.define {
               }
             }
           }
-        },
-        default = {}
+        }
       }
     }
   }
