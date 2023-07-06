@@ -11,7 +11,7 @@ return function(delete_user_config)
       kong.request.get_path(),
       regex.sanitize_regex_string(blacklist_object.user_id)
     ) then
-      return kong.response.exit(400, { errorMessage = errors.PROTECTED_USER_DELETE_ERROR_MESSAGE })
+      return kong.response.exit(400, errors.PROTECTED_USER_DELETE)
     end
   end
 end

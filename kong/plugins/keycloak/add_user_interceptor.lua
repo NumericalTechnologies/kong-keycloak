@@ -22,11 +22,11 @@ return function(add_user_config, host)
     
     local username_length = #username
     if username_length < 1 or username_length > 64 then
-      return kong.response.exit(400, { errorMessage = errors.USERNAME_LENGTH_ERROR_MESSAGE })
+      return kong.response.exit(400, errors.INVALID_USERNAME_LENGTH)
     end
 
     if not regex.is_ascii_string(username) then
-      return kong.response.exit(400, { errorMessage = errors.USERNAME_ASCII_ONLY_ERROR_MESSAGE })
+      return kong.response.exit(400, errors.INVALID_USERNAME_ASCII)
     end
   end
 
@@ -37,7 +37,7 @@ return function(add_user_config, host)
     local authorization = kong.request.get_header(authorization_header_key)
 
     if authorization == nil then
-      return kong.response.exit(400, { errorMessage = errors.MISSING_AUTHORIZATION_HEADER_ERROR_MESSAGE })
+      return kong.response.exit(400, errors.MISSING_AUTHORIZATION_HEADER)
     end
 
     local res = http.new():request_uri(count_users_url, {
@@ -48,12 +48,12 @@ return function(add_user_config, host)
     })
 
     if not res or res.status ~= 200 then
-      return kong.response.exit(500, { errorMessage = errors.UNEXPECTED_ERROR_MESSAGE })
+      return kong.response.exit(500, errors.UNEXPECTED_ERROR)
     end
 
     local number_of_users = tonumber(res.body)
     if number_of_users >= add_user_config.max_users then
-      return kong.response.exit(400, { errorMessage = errors.USER_LIMIT_REACHED_ERROR_MESSAGE })
+      return kong.response.exit(400, errors.USER_LIMIT_REACHED)
     end
   end
 

@@ -1,9 +1,30 @@
 return {
-  USERNAME_LENGTH_ERROR_MESSAGE = "Usernames should be between 1 and 64 characters.",
-  USERNAME_ASCII_ONLY_ERROR_MESSAGE = "Usernames should only contain ASCII characters.",
-  PROTECTED_USER_DELETE_ERROR_MESSAGE = "Cannot delete a protected user or its roles.",
-  PROTECTED_USER_MODIFY_ERROR_MESSAGE = "Cannot modify a protected user or its roles.",
-  MISSING_AUTHORIZATION_HEADER_ERROR_MESSAGE = "Missing authorization header.",
-  UNEXPECTED_ERROR_MESSAGE = "An unexpected error has occurred.",
-  USER_LIMIT_REACHED_ERROR_MESSAGE = "You have reached the maximum number of users allowed."
+  INVALID_USERNAME_LENGTH = {
+    error = "invalidUsernameLength",
+    error_description = "Usernames should be between 1 and 64 characters."
+  },
+  INVALID_USERNAME_ASCII = {
+    error = "invalidUsernameAscii",
+    error_description = "Usernames should only contain ASCII characters."
+  },
+  PROTECTED_USER_DELETE = {
+    error = "protectedUserDelete",
+    error_description = "Cannot delete a protected user or its roles."
+  },
+  PROTECTED_USER_MODIFY = {
+    error = "protectedUserModify",
+    error_description = "Cannot modify a protected user or its roles."
+  },
+  MISSING_AUTHORIZATION_HEADER = {
+    error = "missingAuthorizationHeader",
+    error_description = "Missing authorization header."
+  },
+  UNEXPECTED_ERROR = {
+    error = "unexpectedError",
+    error_description = "An unexpected error has occurred."
+  },
+  USER_LIMIT_REACHED = {
+    error = "userLimitReached",
+    error_description = "You have reached the maximum number of users allowed."
+  },
 }
