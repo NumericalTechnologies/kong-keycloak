@@ -12,7 +12,10 @@ local add_user_schema = Schema.define {
     {
       ascii_only_usernames = {
         type = "boolean",
-        default = true
+        deprecation = {
+          message = "keycloak: config.add_user.ascii_only_usernames is ignored, Keycloak validates usernames",
+          removal_in_version = "2.0.0"
+        }
       }
     },
     {

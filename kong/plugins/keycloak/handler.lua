@@ -1,6 +1,6 @@
 local access = require("kong.plugins.keycloak.access")
 local KongKeycloakHandler = {
-  VERSION = "1.0.0",
+  VERSION = "1.1.0",
   PRIORITY = 1028,
 }
 

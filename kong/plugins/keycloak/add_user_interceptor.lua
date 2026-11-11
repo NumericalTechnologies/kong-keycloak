@@ -15,21 +15,6 @@ return function(add_user_config, host)
   if method ~= "POST" then return end
   if not regex.is_add_user_endpoint(path) then return end
 
-  if add_user_config.ascii_only_usernames then
-    local body = kong.request.get_body("application/json")
-    local username = body["username"]
-    if username == nil then return end
-    
-    local username_length = #username
-    if username_length < 1 or username_length > 64 then
-      return kong.response.exit(400, errors.INVALID_USERNAME_LENGTH)
-    end
-
-    if not regex.is_ascii_string(username) then
-      return kong.response.exit(400, errors.INVALID_USERNAME_ASCII)
-    end
-  end
-
   if add_user_config.max_users > 0 then
     local realm = regex.get_realm_from_add_user_endpoint(path)
     local count_users_url = host .. "/admin/realms/" .. realm .. "/users/count"

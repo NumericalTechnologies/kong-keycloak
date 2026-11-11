@@ -1,12 +1,4 @@
 return {
-  INVALID_USERNAME_LENGTH = {
-    error = "invalidUsernameLength",
-    error_description = "Usernames should be between 1 and 64 characters."
-  },
-  INVALID_USERNAME_ASCII = {
-    error = "invalidUsernameAscii",
-    error_description = "Usernames should only contain ASCII characters."
-  },
   PROTECTED_USER_DELETE = {
     error = "protectedUserDelete",
     error_description = "Cannot delete a protected user or its roles."
